@@ -1,0 +1,46 @@
+# Project: Professional Portfolio for IT Engineer
+
+## 1. Overview
+ITエンジニア（応用情報技術者・情報処理安全確保支援士）としての専門性と、多様な個人開発実績（知育アプリからAPIツールまで）を統合した、シングルページ・ポートフォリオサイトを構築する。
+
+## 2. Tech Stack & Environment
+### Development Environment (Strict)
+* **Containerization:** Docker を使用。ホストOSを汚さず、すべての作業（npm, npx等の実行）はコンテナ内で行うこと。
+* **Base Image:** Node.js (Latest LTS)
+
+### Framework & Build
+* **Framework:** Next.js (App Router)
+* **Styling:** Tailwind CSS
+* **Build Output:** Static Export (`output: 'export'`)
+* **Image Optimization:** S3/CloudFront配信を考慮し、`unoptimized: true` を設定。
+* **Deployment:** AWS S3 + CloudFront (GitHub Actionsによる自動デプロイ想定)
+
+## 3. Design Principles
+### Concept: Engineering Excellence
+* **Vibe:** 硬硬派でプロフェッショナルな印象を追求。「子供っぽさ」を完全に排除する。
+* **Color:** ダークモード（`Zinc` または `Slate` の 950系）を基調とする。
+* **UI Details:** * Glassmorphism（`backdrop-blur`）を用いたヘッダーとカードデザイン。
+    * 技術スタックや資格名、プロジェクトタイトル等にはモノスペースフォント（`font-mono`）をアクセントとして使用。
+    * 実績ごとの固有カラーは、ホバー時の境界線や影に微かに現れる程度に留める。
+
+## 4. Key Sections (Single Page)
+1. **Hero:** - 「高度情報処理技術者」としてのアイデンティティとキャッチコピー。
+2. **Profile / Qualifications:** - **応用情報技術者**, **情報処理安全確保支援士** をバッジ形式で強調。
+   - ITインフラ・セキュリティへの深い理解をテキストで補足。
+3. **Projects:** (各実績は「技術的課題の解決」を軸に紹介)
+   - **Children's Learning App:** Canvas APIの制御、低レイテンシなフィードバックの実装等。
+   - **API-Tester:** Laravel 12 / Docker / SQLite を用いた「ポータブルなAPIテスト環境」の設計。
+   - **OSI Reference Model Site:** 概念の視覚化と、複雑なデータ構造のUI実装。
+4. **Tech Stack:** - Next.js, TypeScript, Tailwind CSS, Laravel, Docker, GitHub Actions, AWS.
+5. **Contact:** - 外部フォームまたはSNS/GitHub/Emailへの導線。
+
+## 5. Technical Instructions for Cursor
+1. **Setup:** - まず `Dockerfile` と `docker-compose.yml` を作成し、環境を立ち上げること。
+   - コンテナ内で `npx create-next-app@latest .` を実行し、TypeScript, Tailwind CSS, App Router を有効化すること。
+2. **Config:** - `next.config.ts` で `output: 'export'` を設定せよ。
+3. **Data Management:** - 実績データは `src/constants/projects.ts` 等の定数ファイルに切り出し、保守性を確保せよ。
+4. **Interaction:** - シングルページ内のスムーズスクロールを実装せよ。
+
+## 6. Constraints
+- レスポンシブ対応（モバイル・デスクトップ両方で洗練されていること）。
+- 読み込み速度を意識した軽量な実装。

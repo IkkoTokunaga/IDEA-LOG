@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/*
+ * Palette inspired by Japanese traditional colors:
+ *   白藍 (shiraai)   : #eaf4fb   - background tint
+ *   水色 (mizuiro)   : #bce2e8
+ *   空色 (sorairo)   : #7bc4e3
+ *   浅葱 (asagi)     : #1ca9c9
+ *   藍  (ai)         : #165e83   - primary / heading
+ *   紺  (kon)        : #0b3d5c
+ */
+@theme {
+  --color-background: #f5f9fc;
+  --color-surface: #ffffff;
+  --color-surface-2: #eaf4fb;
+  --color-border: #dbeafe;
+  --color-border-strong: #bfd9ee;
+  --color-primary: #0b3d5c;
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-muted: #64748b;
+  --color-accent: #1ca9c9;
+  --color-accent-strong: #0284c7;
+  --color-mizuiro: #bce2e8;
+  --color-sorairo: #7bc4e3;
+
+  --font-sans: var(--font-sans), "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Meiryo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), "SFMono-Regular", Menlo, Consolas,
+    ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
+    background-image:
+      radial-gradient(
+        1100px 620px at 85% -8%,
+        rgba(123, 196, 227, 0.28),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 520px at -5% 10%,
+        rgba(188, 226, 232, 0.45),
+        transparent 55%
+      ),
+      radial-gradient(
+        700px 500px at 50% 110%,
+        rgba(28, 169, 201, 0.1),
+        transparent 60%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(28, 169, 201, 0.24);
+    color: var(--color-primary);
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in oklab, #ffffff 78%, transparent);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid color-mix(in oklab, #bfd9ee 62%, transparent);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in oklab, #ffffff 92%, transparent);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid color-mix(in oklab, #bfd9ee 80%, transparent);
+  }
+
+  .dot-bg {
+    background-image: radial-gradient(
+      circle,
+      rgba(28, 169, 201, 0.18) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+    mask-image: radial-gradient(
+      ellipse at top,
+      rgba(0, 0, 0, 0.7),
+      transparent 72%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse at top,
+      rgba(0, 0, 0, 0.7),
+      transparent 72%
+    );
+  }
+
+  .seigaiha-divider {
+    --c: #7bc4e3;
+    background:
+      radial-gradient(circle at 10px 14px, transparent 9px, var(--c) 9.5px, var(--c) 10px, transparent 10.5px),
+      radial-gradient(circle at 10px 14px, transparent 6px, var(--c) 6.5px, var(--c) 7px, transparent 7.5px);
+    background-size: 20px 12px;
+    opacity: 0.6;
+  }
+
+  /* Vertical Japanese-style eyebrow rule */
+  .jp-rule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .jp-rule::before {
+    content: "";
+    display: inline-block;
+    width: 2.25rem;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-accent) 40%,
+      var(--color-accent)
+    );
+  }
+}
