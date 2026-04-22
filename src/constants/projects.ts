@@ -10,6 +10,7 @@ export type Project = {
   links?: {
     demo?: string;
     repo?: string;
+    docker?: string;
   };
   /** Tailwind color token used as subtle hover accent (e.g. "cyan", "emerald", "amber"). */
   accent: "cyan" | "emerald" | "amber" | "violet" | "rose";
@@ -39,17 +40,20 @@ export const projects: Project[] = [
     title: "API-Tester",
     tagline: "Laravel 12 × Docker で作る、ポータブルな API 検証環境",
     description:
-      "REST / GraphQL / Webhook を単一の UI から試行し、リクエスト履歴と認証情報を安全に管理する検証ツール。",
+      "REST API を単一の UI から試行し、リクエスト / レスポンス履歴や環境変数を一元管理する検証ツール。",
     problem:
-      "案件ごとに Postman / curl / 自作スクリプトが散在し、再現性と機密情報管理が課題だった。",
+      "案件ごとに Postman / curl / 自作スクリプトが散在し、端末や環境をまたいだ再現性の確保が課題だった。",
     solution:
-      "Laravel 12 + SQLite により、単一コンテナで完結するポータブル構成を設計。Docker 一発起動で環境差異を排除し、リクエスト / レスポンスを暗号化して永続化した。",
+      "Laravel 12 + SQLite により、単一コンテナで完結するポータブル構成を設計。docker run 一発で同じ環境を立ち上げ、履歴・環境変数をローカルに永続化してどこでも検証を再現可能にした。",
     stack: ["Laravel 12", "PHP 8.3", "SQLite", "Docker", "Tailwind CSS"],
     highlights: [
-      "ローカル / CI / 本番どこでも同一構成で動作するコンテナ設計",
-      "Bearer / Basic / API Key を抽象化した認証レイヤ",
-      "リクエストの diff 表示による回帰検証",
+      "docker compose 一発で起動し、SQLite で DB サーバ不要。イメージ 1 つで完結するポータビリティ",
+      "リクエスト / レスポンス履歴の永続化、環境ごとの変数管理、エクスポート / インポート対応",
+      "UI からのリクエスト編集、cURL / コードスニペット生成、履歴検索による開発体験の向上",
     ],
+    links: {
+      docker: "https://hub.docker.com/r/tokuppee15/api-tester",
+    },
     accent: "emerald",
   },
   {

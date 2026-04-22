@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Target, Wrench } from "lucide-react";
+import { Container, ExternalLink, Github, Target, Wrench } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { projects, type Project } from "@/constants/projects";
 
@@ -114,6 +114,17 @@ export function Projects() {
                       aria-label={`${project.title} のデモ`}
                     >
                       <ExternalLink className="h-3.5 w-3.5" /> Demo
+                    </a>
+                  ) : null}
+                  {project.links?.docker ? (
+                    <a
+                      href={project.links.docker}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 font-mono text-[11px] text-slate-600 hover:border-sky-300 hover:text-sky-700"
+                      aria-label={`${project.title} の Docker イメージ`}
+                    >
+                      <Container className="h-3.5 w-3.5" /> Docker
                     </a>
                   ) : null}
                 </div>
