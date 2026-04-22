@@ -1,8 +1,10 @@
-import { ShieldCheck, Cpu } from "lucide-react";
+import { ShieldCheck, Cpu, Code2, Shield } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { qualifications } from "@/constants/site";
 
 const iconMap = {
+  fe: Code2,
+  sg: Shield,
   ap: Cpu,
   sc: ShieldCheck,
 } as const;

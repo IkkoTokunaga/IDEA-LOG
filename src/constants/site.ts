@@ -18,6 +18,22 @@ export const siteConfig = {
 
 export const qualifications = [
   {
+    id: "fe",
+    code: "FE",
+    name: "基本情報技術者",
+    nameEn: "Fundamental Information Technology Engineer",
+    description:
+      "アルゴリズム・データ構造からネットワーク・DB まで、IT エンジニアの基礎を幅広く問う国家資格。",
+  },
+  {
+    id: "sg",
+    code: "SG",
+    name: "情報セキュリティマネジメント",
+    nameEn: "Information Security Management",
+    description:
+      "組織における情報セキュリティ運用・リスク管理の基礎を体系的に扱う国家資格。",
+  },
+  {
     id: "ap",
     code: "AP",
     name: "応用情報技術者",
@@ -27,11 +43,11 @@ export const qualifications = [
   },
   {
     id: "sc",
-    code: "RISS",
-    name: "情報処理安全確保支援士",
-    nameEn: "Registered Information Security Specialist",
+    code: "SC",
+    name: "情報処理安全確保支援士試験 合格",
+    nameEn: "Information Security Specialist Examination (Passed)",
     description:
-      "サイバーセキュリティの専門職として登録される国家資格。脅威分析と対策設計を担う。",
+      "サイバーセキュリティ領域の国家試験に合格。脅威分析とセキュア設計の基礎を備える（登録セキスペとしての登録は未実施）。",
   },
 ] as const;
 
