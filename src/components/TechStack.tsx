@@ -8,10 +8,10 @@ export function TechStack() {
       className="relative mx-auto w-full max-w-5xl scroll-mt-28 px-6 py-24"
     >
       <SectionHeading
-        eyebrow="道具"
+        eyebrow="技術"
         eyebrowEn="Stack"
-        title="よく使っている道具。"
-        description="作品の中や日々の検証で触れている主な道具です。用途に合わせて入れ替えています。"
+        title="つくるための、選びとった技術。"
+        description="作品の中や日々の検証で触れている主な技術です。用途に合わせて入れ替えています。"
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -20,9 +20,6 @@ export function TechStack() {
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold tracking-tight text-[color:var(--color-primary)]">
                 {group.category}
-                <span className="ml-2 font-mono text-[10px] tracking-widest text-sky-500">
-                  {group.categoryEn.toLowerCase()}
-                </span>
               </h3>
               <span className="font-mono text-[10px] text-slate-400">
                 {String(group.items.length).padStart(2, "0")}

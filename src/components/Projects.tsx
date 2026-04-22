@@ -57,7 +57,7 @@ export function Projects() {
       <SectionHeading
         eyebrow="作品"
         eyebrowEn="Works"
-        title="手を動かしてつくったもの。"
+        title="思いつきを、かたちに。"
         description={`これまでに組み立ててきた個人開発の記録です。計${String(
           projects.length,
         ).padStart(2, "0")}件。順序は制作の新旧ではなく、並べやすさで決めています。`}

@@ -7,7 +7,7 @@ export const siteConfig = {
   navigation: [
     { href: "#works", label: "作品", labelEn: "Works" },
     { href: "#about", label: "紹介", labelEn: "About" },
-    { href: "#tech", label: "道具", labelEn: "Stack" },
+    { href: "#tech", label: "技術", labelEn: "Stack" },
     { href: "#links", label: "連絡", labelEn: "Links" },
   ],
   social: {
@@ -53,23 +53,19 @@ export const qualifications = [
 
 export const techStack = [
   {
-    category: "画面",
-    categoryEn: "Frontend",
+    category: "Frontend",
     items: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
-    category: "裏側",
-    categoryEn: "Backend",
+    category: "Backend",
     items: ["Laravel", "PHP", "Node.js", "REST / GraphQL"],
   },
   {
-    category: "基盤",
-    categoryEn: "Infra",
+    category: "Infrastructure",
     items: ["Docker", "AWS（S3 / CloudFront）", "GitHub Actions", "Linux"],
   },
   {
-    category: "安全",
-    categoryEn: "Security",
+    category: "Security",
     items: ["脅威モデリング", "OWASP Top 10", "ネットワーク監視", "IAM 設計"],
   },
 ] as const;

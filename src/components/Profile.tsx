@@ -18,7 +18,7 @@ export function Profile() {
       <SectionHeading
         eyebrow="紹介"
         eyebrowEn="About"
-        title="つくっている人について。"
+        title="つくっているのは、こんな人。"
         description="普段は IT エンジニアとして働いています。インフラ・セキュリティに比重があり、個人開発ではその知識を土台に「触って気持ちいいもの」を作ることを楽しんでいます。"
       />
 
