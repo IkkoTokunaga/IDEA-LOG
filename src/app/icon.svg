@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="IL favicon">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="24" x2="232" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#eaf4fb" />
+    </linearGradient>
+    <linearGradient id="accent" x1="80" y1="72" x2="190" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1ca9c9" />
+      <stop offset="1" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+  <rect x="20" y="20" width="216" height="216" rx="52" fill="url(#bg)" />
+  <rect x="20" y="20" width="216" height="216" rx="52" fill="none" stroke="#bfd9ee" stroke-width="6" />
+  <path d="M86 72h24v112H86z" fill="#0b3d5c" />
+  <path d="M136 72h24v90h38v22h-62z" fill="url(#accent)" />
+</svg>
