@@ -8,11 +8,12 @@ export const siteConfig = {
     { href: "#works", label: "作品", labelEn: "Works" },
     { href: "#about", label: "紹介", labelEn: "About" },
     { href: "#tech", label: "技術", labelEn: "Stack" },
-    { href: "#links", label: "連絡", labelEn: "Links" },
+    { href: "#contact", label: "問合", labelEn: "Contact" },
+    { href: "#links", label: "活動", labelEn: "Links" },
   ],
   social: {
-    github: "https://github.com/your-handle",
-    email: "mailto:hello@example.com",
+    github: "https://github.com/IkkoTokunaga/IDEA-LOG",
+    x: "https://x.com/ikk_cheese",
   },
 } as const;
 
