@@ -58,14 +58,20 @@ export const techStack = [
   },
   {
     category: "Backend",
-    items: ["Laravel", "PHP", "Node.js", "REST / GraphQL"],
+    items: ["Laravel 12", "PHP 8.3", "SQLite", "REST API"],
   },
   {
     category: "Infrastructure",
-    items: ["Docker", "AWS（S3 / CloudFront）", "GitHub Actions", "Linux"],
+    items: [
+      "Docker",
+      "AWS（S3 / CloudFront）",
+      "Terraform",
+      "GitHub Actions",
+      "Linux (WSL2)",
+    ],
   },
   {
     category: "Security",
-    items: ["脅威モデリング", "OWASP Top 10", "ネットワーク監視", "IAM 設計"],
+    items: ["脅威分析", "セキュア設計", "リスク管理", "ネットワークセキュリティ"],
   },
 ] as const;

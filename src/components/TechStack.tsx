@@ -10,7 +10,7 @@ export function TechStack() {
       <SectionHeading
         eyebrow="技術"
         eyebrowEn="Stack"
-        title="つくるための、選びとった技術。"
+        title="つくるために、選択した技術。"
         description="作品の中や日々の検証で触れている主な技術です。用途に合わせて入れ替えています。"
       />
 

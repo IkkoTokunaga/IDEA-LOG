@@ -132,7 +132,7 @@ export const projects: Project[] = [
       "OSI モデルは抽象度が高く、教科書的な説明だけでは『どのレイヤで何が起きているか』の直観が湧きにくい。",
     solution:
       "階層ごとに PDU の構造体を TypeScript で型定義し、カプセル化／非カプセル化の過程をアニメーションで表現。ネットワーク機器（L2SW / L3SW / Router）の振る舞いも対応付けた。",
-    stack: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     highlights: [
       "複雑なデータ構造を型安全にモデリング",
       "レイヤ間の遷移アニメーションで概念を直感化",
