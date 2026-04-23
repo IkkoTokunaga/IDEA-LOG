@@ -1,6 +1,7 @@
 export type Project = {
   id: string;
   title: string;
+  thumbnail?: string;
   tagline: string;
   description: string;
   problem: string;
@@ -19,6 +20,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "kids-quiz-meiro",
+    thumbnail: "/images/projects/kids-quiz-meiro-top.png",
     title: "生活クイズ（クイズ迷路）",
     tagline: "生活マナーの4択クイズでゴールを目指す段階式ゲーム",
     description:
@@ -40,6 +42,7 @@ export const projects: Project[] = [
   },
   {
     id: "kids-shape",
+    thumbnail: "/images/projects/kids-shape-top.png",
     title: "形遊び",
     tagline: "図形配置と回転の操作で空間認識を鍛える学習アプリ",
     description:
@@ -61,6 +64,7 @@ export const projects: Project[] = [
   },
   {
     id: "kids-kanji",
+    thumbnail: "/images/projects/kids-kanji-top.png",
     title: "漢字練習",
     tagline: "なぞり書きと自由記述を両立した漢字トレーニング",
     description:
@@ -82,6 +86,7 @@ export const projects: Project[] = [
   },
   {
     id: "kids-oekaki-hiroba",
+    thumbnail: "/images/projects/kids-oekaki-hiroba-top.png",
     title: "おえかき ひろば",
     tagline: "多彩な描画ツールで創造力を伸ばすキッズ向けお絵かきアプリ",
     description:
@@ -103,6 +108,7 @@ export const projects: Project[] = [
   },
   {
     id: "api-tester",
+    thumbnail: "/images/projects/api-tester-top.png",
     title: "API-Tester",
     tagline: "Laravel 12 × Docker で作る、ポータブルな API 検証環境",
     description:
@@ -124,6 +130,7 @@ export const projects: Project[] = [
   },
   {
     id: "osi-reference",
+    thumbnail: "/images/projects/osi-reference-top.png",
     title: "OSI Reference Model Site",
     tagline: "概念を『触れる』ことで理解させるビジュアル学習サイト",
     description:
