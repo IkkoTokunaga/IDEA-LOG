@@ -77,6 +77,9 @@ async function validateEmailDomain(email: string): Promise<DnsValidationResult> 
 export function ContactForm() {
   const [isCheckingDomain, setIsCheckingDomain] = useState(false);
   const [messageLength, setMessageLength] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [submitError, setSubmitError] = useState("");
 
   const runEmailDnsValidation = async (emailInput: HTMLInputElement) => {
     if (!emailInput.value || emailInput.validity.typeMismatch) {
@@ -111,6 +114,8 @@ export function ContactForm() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
+    setSubmitMessage("");
+    setSubmitError("");
 
     if (!form.reportValidity()) {
       return;
@@ -137,7 +142,39 @@ export function ContactForm() {
       return;
     }
 
-    form.submit();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method.toUpperCase(),
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setMessageLength(0);
+        setSubmitMessage("問い合わせを送信しました。ありがとうございます。");
+        return;
+      }
+
+      let errorMessage = "送信に失敗しました。時間をおいて再度お試しください。";
+      try {
+        const data = (await response.json()) as { message?: string };
+        if (typeof data.message === "string" && data.message.trim().length > 0) {
+          errorMessage = data.message;
+        }
+      } catch {
+        // keep fallback message when response is not JSON
+      }
+      setSubmitError(errorMessage);
+    } catch {
+      setSubmitError("通信エラーが発生しました。ネットワークをご確認ください。");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -230,11 +267,22 @@ export function ContactForm() {
         <div className="flex justify-end">
           <button
             type="submit"
+            disabled={isSubmitting}
             className="inline-flex items-center justify-center rounded-xl bg-[color:var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
           >
-            送信する
+            {isSubmitting ? "送信中..." : "送信する"}
           </button>
         </div>
+        {submitMessage ? (
+          <p className="text-sm text-emerald-700" role="status">
+            {submitMessage}
+          </p>
+        ) : null}
+        {submitError ? (
+          <p className="text-sm text-rose-600" role="alert">
+            {submitError}
+          </p>
+        ) : null}
       </form>
 
     </section>
