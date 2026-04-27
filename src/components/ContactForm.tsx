@@ -152,7 +152,7 @@ export function ContactForm() {
       />
 
       <form
-        action="#"
+        action="/inquiries"
         method="post"
         onSubmit={handleSubmit}
         className="glass-strong space-y-6 rounded-2xl p-6 sm:p-8"
