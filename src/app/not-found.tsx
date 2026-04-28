@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "ページが見つかりません",
+  description:
+    "お探しのページは存在しないか、URLが変更された可能性があります。作品集トップから作品一覧・プロフィール・お問い合わせへお進みください。",
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: "ページが見つかりません ｜ 作品集",
+    description:
+      "指定のURLにページはありません。トップへ戻って作品やプロフィールをご覧ください。",
+  },
+  twitter: {
+    title: "ページが見つかりません ｜ 作品集",
+    description:
+      "指定のURLにページはありません。トップへ戻って作品やプロフィールをご覧ください。",
+  },
 };
 
 export default function NotFound() {

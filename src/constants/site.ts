@@ -1,3 +1,6 @@
+/** 本番ホスト（メタデータの metadataBase・OG URL）。 */
+export const siteUrl = "https://www.ikk-dev.jp";
+
 export const siteConfig = {
   name: "つくったもの",
   title: "好奇心を、実装する。",
