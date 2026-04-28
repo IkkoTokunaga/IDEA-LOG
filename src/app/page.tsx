@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { siteUrl } from "@/constants/site";
+import { homePageDescription, siteUrl } from "@/constants/site";
+import { JsonLd } from "@/components/JsonLd";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Profile } from "@/components/Profile";
@@ -11,24 +12,25 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "好奇心を、実装する。",
-  description:
-    "基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアの個人開発アーカイブ。知育アプリ、API検証環境、OSI参照モデルの可視化など、Next.js・Laravel・AWSを用いた作品と技術スタックを紹介。",
+  description: homePageDescription,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "好奇心を、実装する。 ｜ 作品集",
-    description:
-      "基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアの個人開発アーカイブ。知育アプリ、API検証環境、OSI参照モデルの可視化など、Next.js・Laravel・AWSを用いた作品と技術スタックを紹介。",
+    description: homePageDescription,
     url: siteUrl,
   },
   twitter: {
     title: "好奇心を、実装する。 ｜ 作品集",
-    description:
-      "基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアの個人開発アーカイブ。知育アプリ、API検証環境、OSI参照モデルの可視化など、Next.js・Laravel・AWSを用いた作品を紹介。",
+    description: homePageDescription,
   },
 };
 
 export default function Home() {
   return (
     <>
+      <JsonLd />
       <Header />
       <main className="relative">
         <Hero />

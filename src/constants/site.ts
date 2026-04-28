@@ -1,6 +1,10 @@
 /** 本番ホスト（メタデータの metadataBase・OG URL）。 */
 export const siteUrl = "https://www.ikk-dev.jp";
 
+/** トップページのディスクリプション（メタタグ・構造化データで共通利用）。 */
+export const homePageDescription =
+  "基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアの個人開発アーカイブ。知育アプリ、API検証環境、OSI参照モデルの可視化など、Next.js・Laravel・AWSを用いた作品と技術スタックを紹介。";
+
 export const siteConfig = {
   name: "つくったもの",
   title: "好奇心を、実装する。",
