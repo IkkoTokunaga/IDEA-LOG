@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "正解/不正解の音と演出、ステージクリア画面、最終ゴール画面を実装",
     ],
     links: {
-      demo: "https://kids-quiz-meiro.vercel.app/",
+      demo: "https://kids-quiz.ikk-dev.jp/",
     },
     accent: "amber",
   },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
       "レスポンシブ対応、効果音、正解演出で学習の没入感を向上",
     ],
     links: {
-      demo: "https://kids-shape.vercel.app/",
+      demo: "https://kids-shape.ikk-dev.jp/",
     },
     accent: "violet",
   },
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "リサイズ時の描画保持と再同期でモバイルの表示崩れを抑制",
     ],
     links: {
-      demo: "https://kids-kanji.vercel.app/",
+      demo: "https://kids-kanji.ikk-dev.jp/",
     },
     accent: "rose",
   },
@@ -102,7 +102,7 @@ export const projects: Project[] = [
       "線の太さUIと描画ロジックをテストで検証し、改修時の退行を防止",
     ],
     links: {
-      demo: "https://kids-oekaki.vercel.app/",
+      demo: "https://kids-oekaki.ikk-dev.jp/",
     },
     accent: "cyan",
   },
