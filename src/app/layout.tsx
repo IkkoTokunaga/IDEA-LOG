@@ -42,12 +42,21 @@ export const metadata: Metadata = {
       "ITエンジニアによる個人開発のアーカイブ。作品紹介、資格・技術スタック、お問い合わせ。",
     url: siteUrl,
     locale: "ja_JP",
+    images: [
+      {
+        url: "/images/og/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "IDEA LOG ポートフォリオのOGP画像",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "好奇心を、実装する。 ｜ 作品集",
     description:
       "ITエンジニアによる個人開発のアーカイブ。作品紹介、資格・技術スタック、お問い合わせ。",
+    images: ["/images/og/ogp.png"],
   },
   robots: { index: true, follow: true },
 };
