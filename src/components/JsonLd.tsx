@@ -14,7 +14,11 @@ export function JsonLd() {
         "@id": `${origin}#organization`,
         name: siteConfig.name,
         url: origin,
-        sameAs: [siteConfig.social.github, siteConfig.social.x],
+        sameAs: [
+          siteConfig.social.github,
+          siteConfig.social.x,
+          siteConfig.social.ameblo,
+        ],
       },
       {
         "@type": "WebSite",

@@ -21,6 +21,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/IkkoTokunaga/IDEA-LOG",
     x: "https://x.com/ikk_cheese",
+    ameblo: "https://ameblo.jp/ikk-cheese/entrylist.html",
   },
 } as const;
 

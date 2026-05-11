@@ -1,4 +1,4 @@
-import { Github, ArrowUpRight } from "lucide-react";
+import { BookOpen, Github, ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { siteConfig } from "@/constants/site";
 
@@ -15,7 +15,7 @@ export function Links() {
         description="感想・指摘・雑談、どれでも歓迎です。必要なときにどうぞ。"
       />
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <a
           href={siteConfig.social.github}
           target="_blank"
@@ -54,6 +54,28 @@ export function Links() {
               </p>
               <p className="mt-1 font-mono text-sm text-[color:var(--color-primary)]">
                 @ikk_cheese
+              </p>
+            </div>
+          </div>
+          <ArrowUpRight className="h-5 w-5 text-slate-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sky-600" />
+        </a>
+
+        <a
+          href={siteConfig.social.ameblo}
+          target="_blank"
+          rel="noreferrer"
+          className="glass group flex items-center justify-between rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:border-sky-300 hover:shadow-[0_16px_40px_-20px_rgba(2,132,199,0.35)]"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-sky-200 bg-sky-50">
+              <BookOpen className="h-5 w-5 text-sky-700" />
+            </div>
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-sky-700">
+                アメブロ
+              </p>
+              <p className="mt-1 font-mono text-sm text-[color:var(--color-primary)]">
+                ikk-cheese
               </p>
             </div>
           </div>
