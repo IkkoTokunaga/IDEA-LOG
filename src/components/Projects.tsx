@@ -5,47 +5,37 @@ import { projects, type Project } from "@/constants/projects";
 
 const accentClasses: Record<
   Project["accent"],
-  { border: string; shadow: string; text: string; dot: string; badge: string }
+  { border: string; text: string; dot: string; badge: string }
 > = {
   cyan: {
-    border: "hover:border-sky-400/80",
-    shadow:
-      "hover:shadow-[0_0_0_1px_rgba(14,165,233,0.18),0_24px_40px_-24px_rgba(14,165,233,0.45)]",
-    text: "group-hover:text-sky-700",
-    dot: "bg-sky-500",
-    badge: "bg-sky-50 text-sky-700 border-sky-200",
+    border: "hover:border-[color:var(--color-sky-strong)]",
+    text: "group-hover:text-[color:var(--color-sky-ink)]",
+    dot: "bg-[color:var(--color-sky-strong)]",
+    badge: "bg-[color:var(--color-sky-soft)] text-[color:var(--color-sky-ink)] border-[color:var(--color-sky)]/40",
   },
   emerald: {
-    border: "hover:border-teal-400/80",
-    shadow:
-      "hover:shadow-[0_0_0_1px_rgba(20,184,166,0.18),0_24px_40px_-24px_rgba(20,184,166,0.4)]",
-    text: "group-hover:text-teal-700",
-    dot: "bg-teal-500",
-    badge: "bg-teal-50 text-teal-700 border-teal-200",
+    border: "hover:border-[color:var(--color-leaf)]",
+    text: "group-hover:text-[color:var(--color-leaf-strong)]",
+    dot: "bg-[color:var(--color-leaf)]",
+    badge: "bg-[#eaf6e6] text-[color:var(--color-leaf-strong)] border-[color:var(--color-leaf)]/40",
   },
   amber: {
-    border: "hover:border-amber-400/80",
-    shadow:
-      "hover:shadow-[0_0_0_1px_rgba(217,119,6,0.15),0_24px_40px_-24px_rgba(217,119,6,0.35)]",
-    text: "group-hover:text-amber-700",
-    dot: "bg-amber-500",
-    badge: "bg-amber-50 text-amber-700 border-amber-200",
+    border: "hover:border-[color:var(--color-sun-strong)]",
+    text: "group-hover:text-[#9a6b00]",
+    dot: "bg-[color:var(--color-sun)]",
+    badge: "bg-[color:var(--color-sun-soft)] text-[#8a5e00] border-[color:var(--color-sun)]/55",
   },
   violet: {
-    border: "hover:border-indigo-400/80",
-    shadow:
-      "hover:shadow-[0_0_0_1px_rgba(99,102,241,0.18),0_24px_40px_-24px_rgba(99,102,241,0.4)]",
-    text: "group-hover:text-indigo-700",
-    dot: "bg-indigo-500",
-    badge: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    border: "hover:border-[#b4a4ee]",
+    text: "group-hover:text-[#6a4ec7]",
+    dot: "bg-[#a896f0]",
+    badge: "bg-[#efeafd] text-[#6a4ec7] border-[#cabff4]",
   },
   rose: {
-    border: "hover:border-rose-400/80",
-    shadow:
-      "hover:shadow-[0_0_0_1px_rgba(244,63,94,0.18),0_24px_40px_-24px_rgba(244,63,94,0.4)]",
-    text: "group-hover:text-rose-700",
-    dot: "bg-rose-500",
-    badge: "bg-rose-50 text-rose-700 border-rose-200",
+    border: "hover:border-[#f4a7b3]",
+    text: "group-hover:text-[#c14a63]",
+    dot: "bg-[#f4a7b3]",
+    badge: "bg-[#fde9ed] text-[#c14a63] border-[#f4c1cc]",
   },
 };
 
@@ -58,10 +48,10 @@ export function Projects() {
       <SectionHeading
         eyebrow="作品"
         eyebrowEn="Works"
-        title="思いつきを、かたちに。"
-        description={`これまでに組み立ててきた個人開発の記録です。計${String(
+        title="つくったものを、並べておきます。"
+        description={`これまで手を動かして組み立ててきた個人開発の記録です。計${String(
           projects.length,
-        ).padStart(2, "0")}件。順序は制作の新旧ではなく、並べやすさで決めています。`}
+        ).padStart(2, "0")}件。 つまり、それぞれが「こういう困りごとを、こう解いた」一つひとつの小さな現場、です。`}
       />
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -74,7 +64,7 @@ export function Projects() {
           return (
             <article
               key={project.id}
-              className={`group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 backdrop-blur transition-all duration-300 ${a.border} ${a.shadow}`}
+              className={`group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-white transition-colors duration-200 ${a.border}`}
             >
               {previewLink ? (
                 <a
@@ -82,7 +72,7 @@ export function Projects() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`${project.title} のTOPイメージから遷移`}
-                  className="relative block aspect-[16/10] w-full cursor-pointer border-b border-slate-200/80 bg-slate-100"
+                  className="relative block aspect-[16/10] w-full cursor-pointer border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-2)]"
                 >
                   {project.thumbnail ? (
                     <Image
@@ -90,71 +80,69 @@ export function Projects() {
                       alt={`${project.title} のTOP画面イメージ`}
                       fill
                       sizes="(min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-100 to-sky-100">
-                      <span className="font-mono text-xs tracking-wider text-slate-500">
+                    <div className="flex h-full items-center justify-center bg-[color:var(--color-sky-soft)]">
+                      <span className="font-mono text-xs tracking-wider text-[color:var(--color-sky-ink)]">
                         TOP IMAGE PREPARING
                       </span>
                     </div>
                   )}
-                  <div className="pointer-events-none absolute right-3 top-3 flex items-center gap-1 rounded-full bg-slate-900/65 px-2.5 py-1 font-mono text-[10px] tracking-wider text-white">
+                  <div className="pointer-events-none absolute right-3 top-3 flex items-center gap-1 rounded-full bg-[color:var(--color-ink)]/85 px-2.5 py-1 font-mono text-[10px] tracking-wider text-white">
                     <ExternalLink className="h-3 w-3" />
                     OPEN
                   </div>
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-900/0 transition-colors duration-300 group-hover:bg-slate-900/35">
-                    <span className="rounded-full border border-white/70 bg-white/15 px-3 py-1.5 text-xs font-semibold tracking-wide text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[color:var(--color-ink)]/0 transition-colors duration-300 group-hover:bg-[color:var(--color-ink)]/30">
+                    <span className="rounded-full bg-[color:var(--color-sun)] px-3 py-1.5 text-xs font-bold tracking-wide text-[color:var(--color-ink)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       画像をクリックしてサイトへ
                     </span>
                   </div>
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/80 to-transparent" />
                 </a>
               ) : (
-                <div className="relative aspect-[16/10] w-full border-b border-slate-200/80 bg-slate-100">
+                <div className="relative aspect-[16/10] w-full border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-2)]">
                   {project.thumbnail ? (
                     <Image
                       src={project.thumbnail}
                       alt={`${project.title} のTOP画面イメージ`}
                       fill
                       sizes="(min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                      className="object-cover object-top"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-100 to-sky-100">
-                      <span className="font-mono text-xs tracking-wider text-slate-500">
+                    <div className="flex h-full items-center justify-center bg-[color:var(--color-sky-soft)]">
+                      <span className="font-mono text-xs tracking-wider text-[color:var(--color-sky-ink)]">
                         TOP IMAGE PREPARING
                       </span>
                     </div>
                   )}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/80 to-transparent" />
                 </div>
               )}
 
               <div className="p-5">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[11px] tracking-widest text-slate-400">
+                  <span className="font-mono text-[11px] tracking-widest text-[color:var(--color-muted)]">
                     No. {indexLabel}
                   </span>
                   <span className={`h-1.5 w-1.5 rounded-full ${a.dot}`} />
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-slate-500">
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-[color:var(--color-muted)]">
                     {project.id}
                   </span>
                 </div>
                 <h3
-                  className={`mt-2 line-clamp-2 text-lg font-bold text-[color:var(--color-primary)] transition-colors ${a.text}`}
+                  className={`mt-2 line-clamp-2 text-lg font-extrabold text-[color:var(--color-ink)] transition-colors ${a.text}`}
                 >
                   {project.title}
                 </h3>
-                <p className="mt-1 line-clamp-2 text-sm text-slate-500">
+                <p className="mt-1 line-clamp-2 text-sm text-[color:var(--color-ink-muted)]">
                   {project.tagline}
                 </p>
-                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-700">
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
                   {project.description}
                 </p>
                 {previewLink ? (
-                  <p className="mt-2 text-xs font-medium tracking-wide text-slate-500">
-                    画像をクリックするとサイトを開きます
+                  <p className="mt-2 text-xs font-medium tracking-wide text-[color:var(--color-muted)]">
+                    画像をクリックすると実際に触れます。
                   </p>
                 ) : null}
 

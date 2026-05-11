@@ -1,6 +1,22 @@
 import { ArrowDown } from "lucide-react";
 import { siteConfig } from "@/constants/site";
 import { projects } from "@/constants/projects";
+import { Cloud, Mascot } from "./Mascot";
+
+/**
+ * 日本語タイトルを読点（、）で2行に分けて表示するヘルパー。
+ * 長い見出しが単語の途中で折り返されるのを防ぎ、リズムを揃える。
+ */
+function renderTitle(title: string) {
+  const [head, ...rest] = title.split("、");
+  if (rest.length === 0) return title;
+  return (
+    <>
+      <span className="block">{head}、</span>
+      <span className="block">{rest.join("、")}</span>
+    </>
+  );
+}
 
 export function Hero() {
   return (
@@ -8,47 +24,59 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[92vh] items-center overflow-hidden pt-24 sm:pt-28 md:pt-32"
     >
-      <div aria-hidden className="absolute inset-0 dot-bg" />
-      <div
+      <div aria-hidden className="absolute inset-0 sunny-dots opacity-70" />
+
+      <Cloud
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[-20%] mx-auto h-[60vh] max-w-4xl rounded-full bg-sky-200/50 blur-3xl"
+        className="pointer-events-none absolute left-[6%] top-[16%] hidden h-16 w-auto text-white/85 md:block"
       />
-      <div
+      <Cloud
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[color:var(--color-background)]"
+        className="pointer-events-none absolute right-[8%] top-[28%] hidden h-12 w-auto text-white/80 md:block"
       />
 
       <div className="relative mx-auto w-full max-w-5xl px-6">
-        <h1 className="text-[clamp(2.75rem,8vw,6rem)] font-bold leading-[1.02] tracking-tight text-[color:var(--color-primary)]">
-          {siteConfig.title}
-        </h1>
-        <p className="mt-3 font-mono text-sm tracking-[0.18em] text-sky-600 sm:text-base">
-          — {siteConfig.subtitle} —
+        <p className="horizon-rule mb-5 text-[12px] font-medium tracking-[0.22em] text-[color:var(--color-sky-strong)]">
+          {siteConfig.concept}
         </p>
 
-        <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-slate-600 sm:text-base">
+        <h1 className="text-[clamp(2.5rem,7.5vw,5rem)] font-extrabold leading-[1.1] tracking-tight text-[color:var(--color-ink)]">
+          {renderTitle(siteConfig.title)}
+        </h1>
+
+        <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-[color:var(--color-ink-muted)] sm:text-base">
           {siteConfig.tagline}
           <br className="hidden sm:block" />
-          どんな課題が面白くて、どう解いたか。そこに重きを置いてまとめています。
+          専門用語を並べるよりも、相手の景色に立って組み立てることを大切にしています。
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
             href="#works"
-            className="group inline-flex items-center gap-2 rounded-full bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_-6px_rgba(2,132,199,0.55)] transition-all hover:-translate-y-0.5 hover:bg-sky-700 hover:shadow-[0_10px_26px_-8px_rgba(2,132,199,0.55)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--color-sun)] px-5 py-2.5 text-sm font-bold text-[color:var(--color-ink)] transition-colors hover:bg-[color:var(--color-sun-strong)]"
           >
-            作品を見る
+            作品をのぞいてみる
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </a>
           <a
             href="#about"
-            className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/70 px-5 py-2.5 text-sm font-semibold text-sky-800 transition-colors hover:border-sky-400 hover:bg-white"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-[color:var(--color-sky)] bg-white px-5 py-2.5 text-sm font-bold text-[color:var(--color-sky-ink)] transition-colors hover:bg-[color:var(--color-sky-soft)]"
           >
-            制作者について
+            つくっている人について
           </a>
         </div>
 
-        <dl className="mt-14 grid max-w-lg grid-cols-3 gap-3">
+        <div className="mt-12 inline-flex items-center gap-3 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-paper)] px-4 py-3">
+          <Mascot className="h-10 w-10 shrink-0" />
+          <p className="text-[13px] leading-relaxed text-[color:var(--color-ink-muted)] sm:text-sm">
+            <span className="font-bold text-[color:var(--color-ink)]">爆速</span>と書いていますが、
+            <br className="sm:hidden" />
+            それは雑な速さではなく、熟練した職人が迷わず手を動かす
+            <span className="font-bold text-[color:var(--color-sky-ink)]">心地よいリズム感</span>のことです。
+          </p>
+        </div>
+
+        <dl className="mt-12 grid max-w-lg grid-cols-3 gap-3">
           {[
             { label: "作品数", value: String(projects.length).padStart(2, "0") },
             { label: "開始年", value: "2026" },
@@ -56,12 +84,12 @@ export function Hero() {
           ].map((kpi) => (
             <div
               key={kpi.label}
-              className="glass rounded-2xl px-4 py-3"
+              className="rounded-2xl border border-[color:var(--color-border)] bg-white px-4 py-3"
             >
-              <dt className="text-[11px] tracking-[0.18em] text-slate-500">
+              <dt className="text-[11px] tracking-[0.18em] text-[color:var(--color-muted)]">
                 {kpi.label}
               </dt>
-              <dd className="mt-1 font-mono text-base font-semibold text-[color:var(--color-primary)]">
+              <dd className="mt-1 font-mono text-base font-bold text-[color:var(--color-ink)]">
                 {kpi.value}
               </dd>
             </div>

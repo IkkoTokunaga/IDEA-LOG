@@ -1,33 +1,46 @@
 @import "tailwindcss";
 
 /*
- * Palette inspired by Japanese traditional colors:
- *   白藍 (shiraai)   : #eaf4fb   - background tint
- *   水色 (mizuiro)   : #bce2e8
- *   空色 (sorairo)   : #7bc4e3
- *   浅葱 (asagi)     : #1ca9c9
- *   藍  (ai)         : #165e83   - primary / heading
- *   紺  (kon)        : #0b3d5c
+ * Concept: "テクノロジーを、もっと日向の温かさへ。"
+ * 青空の下、紙のような温もりのオフホワイト、太陽のイエロー。
+ * フラットで風通しの良い、マットな質感を基本にする。
  */
 @theme {
-  --color-background: #f5f9fc;
+  --color-background: #fbf8ef;
   --color-surface: #ffffff;
-  --color-surface-2: #eaf4fb;
-  --color-border: #dbeafe;
-  --color-border-strong: #bfd9ee;
-  --color-primary: #0b3d5c;
-  --color-ink: #0f172a;
-  --color-ink-muted: #475569;
-  --color-muted: #64748b;
-  --color-accent: #1ca9c9;
-  --color-accent-strong: #0284c7;
-  --color-mizuiro: #bce2e8;
-  --color-sorairo: #7bc4e3;
+  --color-surface-2: #f5efe0;
+  --color-paper: #fffdf6;
+  --color-border: #ece4cf;
+  --color-border-strong: #d9cda7;
 
-  --font-sans: var(--font-sans), "Hiragino Kaku Gothic ProN",
-    "Yu Gothic", "Meiryo", ui-sans-serif, system-ui, sans-serif;
+  --color-sky-soft: #d6ecf8;
+  --color-sky: #7cc1e8;
+  --color-sky-strong: #3a96cf;
+  --color-sky-ink: #1d6aa0;
+
+  --color-sun-soft: #fff1b8;
+  --color-sun: #ffd23f;
+  --color-sun-strong: #f5b400;
+
+  --color-leaf: #7bbf6a;
+  --color-leaf-strong: #4a9a3a;
+
+  --color-ink: #2c3142;
+  --color-ink-muted: #5b6172;
+  --color-muted: #8a8f9d;
+
+  --color-primary: var(--color-sky-ink);
+  --color-accent: var(--color-sun);
+  --color-accent-strong: var(--color-sun-strong);
+
+  --font-sans: var(--font-sans), "Hiragino Maru Gothic ProN",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo",
+    ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), "SFMono-Regular", Menlo, Consolas,
     ui-monospace, monospace;
+
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
 }
 
 @layer base {
@@ -46,88 +59,104 @@
     letter-spacing: 0.01em;
     background-image:
       radial-gradient(
-        1100px 620px at 85% -8%,
-        rgba(123, 196, 227, 0.28),
-        transparent 60%
+        900px 520px at 88% -10%,
+        rgba(124, 193, 232, 0.32),
+        transparent 62%
       ),
       radial-gradient(
-        900px 520px at -5% 10%,
-        rgba(188, 226, 232, 0.45),
-        transparent 55%
-      ),
-      radial-gradient(
-        700px 500px at 50% 110%,
-        rgba(28, 169, 201, 0.1),
+        700px 420px at -5% 8%,
+        rgba(255, 210, 63, 0.18),
         transparent 60%
       );
     background-attachment: fixed;
   }
 
   ::selection {
-    background-color: rgba(28, 169, 201, 0.24);
-    color: var(--color-primary);
+    background-color: rgba(255, 210, 63, 0.5);
+    color: var(--color-ink);
   }
 }
 
 @layer components {
-  .glass {
-    background-color: color-mix(in oklab, #ffffff 78%, transparent);
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
-    border: 1px solid color-mix(in oklab, #bfd9ee 62%, transparent);
+  .panel {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
   }
 
-  .glass-strong {
-    background-color: color-mix(in oklab, #ffffff 92%, transparent);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
-    border: 1px solid color-mix(in oklab, #bfd9ee 80%, transparent);
+  .panel-paper {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
   }
 
-  .dot-bg {
+  .panel-sky {
+    background-color: var(--color-sky-soft);
+    border: 1px solid color-mix(in oklab, var(--color-sky) 38%, transparent);
+    border-radius: var(--radius-card);
+  }
+
+  /* Soft paper grain - matte texture without heavy noise */
+  .paper-grain {
+    background-image:
+      radial-gradient(
+        rgba(120, 100, 60, 0.045) 1px,
+        transparent 1px
+      );
+    background-size: 6px 6px;
+  }
+
+  /* Tiny dotted backdrop - cheerful but not busy */
+  .sunny-dots {
     background-image: radial-gradient(
       circle,
-      rgba(28, 169, 201, 0.18) 1px,
+      rgba(58, 150, 207, 0.18) 1px,
       transparent 1px
     );
-    background-size: 22px 22px;
+    background-size: 26px 26px;
     mask-image: radial-gradient(
       ellipse at top,
       rgba(0, 0, 0, 0.7),
-      transparent 72%
+      transparent 75%
     );
     -webkit-mask-image: radial-gradient(
       ellipse at top,
       rgba(0, 0, 0, 0.7),
-      transparent 72%
+      transparent 75%
     );
   }
 
-  .seigaiha-divider {
-    --c: #7bc4e3;
-    background:
-      radial-gradient(circle at 10px 14px, transparent 9px, var(--c) 9.5px, var(--c) 10px, transparent 10.5px),
-      radial-gradient(circle at 10px 14px, transparent 6px, var(--c) 6.5px, var(--c) 7px, transparent 7.5px);
-    background-size: 20px 12px;
-    opacity: 0.6;
-  }
-
-  /* Vertical Japanese-style eyebrow rule */
-  .jp-rule {
+  /* Soft horizon line - replaces the old seigaiha rule */
+  .horizon-rule {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
   }
-  .jp-rule::before {
+  .horizon-rule::before {
     content: "";
     display: inline-block;
     width: 2.25rem;
-    height: 1px;
+    height: 2px;
+    border-radius: 999px;
     background: linear-gradient(
       to right,
       transparent,
-      var(--color-accent) 40%,
-      var(--color-accent)
+      var(--color-sky-strong) 60%,
+      var(--color-sun) 100%
     );
+  }
+
+  /* Pill chip used for stack tags, soft and matte */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.65rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    line-height: 1.4;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-border);
+    color: var(--color-ink-muted);
   }
 }

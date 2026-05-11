@@ -1,6 +1,6 @@
 import { homePageDescription, siteConfig, siteUrl } from "@/constants/site";
 
-const pageTitle = "好奇心を、実装する。";
+const pageTitle = "ひらめきを、エンジニアリング。";
 
 export function JsonLd() {
   const base = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;

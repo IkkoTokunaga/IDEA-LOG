@@ -11,18 +11,18 @@ import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "好奇心を、実装する。",
+  title: "ひらめきを、エンジニアリング。",
   description: homePageDescription,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "好奇心を、実装する。 ｜ 作品集",
+    title: "ひらめきを、エンジニアリング。 ｜ 作品集",
     description: homePageDescription,
     url: siteUrl,
   },
   twitter: {
-    title: "好奇心を、実装する。 ｜ 作品集",
+    title: "ひらめきを、エンジニアリング。 ｜ 作品集",
     description: homePageDescription,
   },
 };

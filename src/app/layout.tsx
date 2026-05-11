@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, JetBrains_Mono } from "next/font/google";
+import { M_PLUS_Rounded_1c, JetBrains_Mono } from "next/font/google";
 import { siteUrl } from "@/constants/site";
 import "./globals.css";
 
-const notoSansJp = Noto_Sans_JP({
+const roundedSans = M_PLUS_Rounded_1c({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700", "800"],
   display: "swap",
   variable: "--font-sans",
 });
@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "好奇心を、実装する。 ｜ 作品集",
+    default: "ひらめきを、エンジニアリング。 ｜ 作品集",
     template: "%s ｜ 作品集",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    title: "好奇心を、実装する。 ｜ 作品集",
+    title: "ひらめきを、エンジニアリング。 ｜ 作品集",
     description:
       "ITエンジニアによる個人開発のアーカイブ。作品紹介、資格・技術スタック、お問い合わせ。",
     url: siteUrl,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "好奇心を、実装する。 ｜ 作品集",
+    title: "ひらめきを、エンジニアリング。 ｜ 作品集",
     description:
       "ITエンジニアによる個人開発のアーカイブ。作品紹介、資格・技術スタック、お問い合わせ。",
     images: ["/images/og/ogp.png"],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f5f9fc",
+  themeColor: "#fbf8ef",
   colorScheme: "light",
 };
 
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${notoSansJp.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${roundedSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="min-h-screen antialiased">{children}</body>
     </html>

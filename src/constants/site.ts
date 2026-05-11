@@ -3,14 +3,14 @@ export const siteUrl = "https://www.ikk-dev.jp";
 
 /** トップページのディスクリプション（メタタグ・構造化データで共通利用）。 */
 export const homePageDescription =
-  "基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアの個人開発アーカイブ。知育アプリ、API検証環境、OSI参照モデルの可視化など、Next.js・Laravel・AWSを用いた作品と技術スタックを紹介。";
+  "テクノロジーを、もっと日向の温かさへ。基本情報・応用情報・情報セキュリティマネジメント等の資格を持つITエンジニアが、知育アプリ・API検証環境・OSI参照モデルの可視化などを Next.js / Laravel / AWS で組み立てた個人開発アーカイブ。";
 
 export const siteConfig = {
   name: "つくったもの",
-  title: "好奇心を、実装する。",
-  subtitle: "個人開発の小さなアーカイブ",
+  title: "ひらめきを、エンジニアリング。",
+  concept: "テクノロジーを、もっと日向の温かさへ。",
   tagline:
-    "これまで手を動かして組み立ててきたものを、淡々と並べています。",
+    "つまり、こういうことですよね — そう確かめながら、迷いのないリズムで形にしていきます。",
   navigation: [
     { href: "#works", label: "作品", labelEn: "Works" },
     { href: "#about", label: "紹介", labelEn: "About" },

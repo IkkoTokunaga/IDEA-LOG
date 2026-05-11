@@ -185,21 +185,22 @@ export function ContactForm() {
       <SectionHeading
         eyebrow="問い合わせ"
         eyebrowEn="Contact"
-        title="ご連絡フォーム。"
+        title="気軽に、声をかけてください。"
+        description="お仕事のご相談はもちろん、感想・質問・雑談、どれでも構いません。ベンチに腰かけて話すような気持ちで送ってもらえると嬉しいです。"
       />
 
       <form
         action="/inquiries"
         method="post"
         onSubmit={handleSubmit}
-        className="glass-strong space-y-6 rounded-2xl p-6 sm:p-8"
+        className="space-y-6 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-paper)] p-6 sm:p-8"
       >
         <div className="space-y-2">
           <label
             htmlFor="name"
-            className="text-xs font-semibold tracking-[0.14em] text-sky-700"
+            className="text-xs font-bold tracking-[0.14em] text-[color:var(--color-sky-strong)]"
           >
-            氏名
+            お名前
           </label>
           <input
             id="name"
@@ -207,7 +208,7 @@ export function ContactForm() {
             type="text"
             required
             autoComplete="name"
-            className="w-full rounded-xl border border-sky-100 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-200/70"
+            className="w-full rounded-xl border border-[color:var(--color-border)] bg-white px-4 py-3 text-sm text-[color:var(--color-ink)] outline-none transition focus:border-[color:var(--color-sky-strong)] focus:ring-2 focus:ring-[color:var(--color-sky)]/40"
             placeholder="山田 太郎"
           />
         </div>
@@ -215,7 +216,7 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="email"
-            className="text-xs font-semibold tracking-[0.14em] text-sky-700"
+            className="text-xs font-bold tracking-[0.14em] text-[color:var(--color-sky-strong)]"
           >
             メールアドレス
           </label>
@@ -226,20 +227,20 @@ export function ContactForm() {
             required
             autoComplete="email"
             onBlur={handleEmailBlur}
-            className="w-full rounded-xl border border-sky-100 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-200/70"
+            className="w-full rounded-xl border border-[color:var(--color-border)] bg-white px-4 py-3 text-sm text-[color:var(--color-ink)] outline-none transition focus:border-[color:var(--color-sky-strong)] focus:ring-2 focus:ring-[color:var(--color-sky)]/40"
             placeholder="example@mail.com"
           />
           {isCheckingDomain ? (
-            <p className="text-xs text-slate-500">ドメインのDNSを確認しています...</p>
+            <p className="text-xs text-[color:var(--color-muted)]">ドメインのDNSを確認しています...</p>
           ) : null}
         </div>
 
         <div className="space-y-2">
           <label
             htmlFor="message"
-            className="text-xs font-semibold tracking-[0.14em] text-sky-700"
+            className="text-xs font-bold tracking-[0.14em] text-[color:var(--color-sky-strong)]"
           >
-            問合せ内容
+            ご用件
           </label>
           <textarea
             id="message"
@@ -256,10 +257,10 @@ export function ContactForm() {
               setMessageLength(textarea.value.length);
               validateMessageRequired(textarea);
             }}
-            className="w-full rounded-xl border border-sky-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-700 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-200/70"
-            placeholder="お問い合わせ内容をご記入ください。"
+            className="w-full rounded-xl border border-[color:var(--color-border)] bg-white px-4 py-3 text-sm leading-relaxed text-[color:var(--color-ink)] outline-none transition focus:border-[color:var(--color-sky-strong)] focus:ring-2 focus:ring-[color:var(--color-sky)]/40"
+            placeholder="どんなご用件でも構いません。気軽にどうぞ。"
           />
-          <p className="text-right text-xs text-slate-500">
+          <p className="text-right text-xs text-[color:var(--color-muted)]">
             {messageLength}/{MAX_MESSAGE_LENGTH}
           </p>
         </div>
@@ -268,13 +269,13 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center justify-center rounded-xl bg-[color:var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+            className="inline-flex items-center justify-center rounded-full bg-[color:var(--color-sun)] px-6 py-2.5 text-sm font-bold text-[color:var(--color-ink)] transition hover:bg-[color:var(--color-sun-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sky-strong)] disabled:opacity-60"
           >
-            {isSubmitting ? "送信中..." : "送信する"}
+            {isSubmitting ? "送信中..." : "送ってみる"}
           </button>
         </div>
         {submitMessage ? (
-          <p className="text-sm text-emerald-700" role="status">
+          <p className="text-sm text-[color:var(--color-leaf-strong)]" role="status">
             {submitMessage}
           </p>
         ) : null}
