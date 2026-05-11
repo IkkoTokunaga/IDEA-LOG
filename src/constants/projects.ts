@@ -107,6 +107,28 @@ export const projects: Project[] = [
     accent: "cyan",
   },
   {
+    id: "kids-flashcard",
+    thumbnail: "/images/projects/kids-flashcard-top.png",
+    title: "こどもフラッシュカード",
+    tagline: "絵とひらがなを結ぶ、難易度付きフラッシュカード学習",
+    description:
+      "OpenMoji の SVG を用いた幼児向けフラッシュカード。難易度に応じてジャンル数と制限時間が変わり、絵を見て答えのひらがなを思い浮かべる流れをシンプルに提供する。",
+    problem:
+      "低年齢向けの語彙学習では、答えをいつ見せるか（待つか・即答か）のバランスと、素材の著作権・一貫した画風の確保が同時に課題になりやすい。",
+    solution:
+      "難易度ごとにデッキ構築ロジックで出題範囲と秒数を切り替え、タイムアップまたはタップで裏面（ひらがな）を表示したあと自動で次問へ進行。画像は OpenMoji をビルド時取得し、SVG をそのまま配信して軽量かつライセンスを明確化した。",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Jest"],
+    highlights: [
+      "CSS 3D 変換でカードの表裏切り替えと、タップ／制限時間による答え開示を実装",
+      "ジャンル数 × 制限時間の組み合わせで「かんたん／ふつう／むずかしい」を定義し、デッキを組み立て",
+      "シャッフル・難易度・デッキ構築をユニットテストで検証し、出題ロジックの退行を防止",
+    ],
+    links: {
+      demo: "https://kids-flashcard.ikk-dev.jp/",
+    },
+    accent: "emerald",
+  },
+  {
     id: "api-tester",
     thumbnail: "/images/projects/api-tester-top.png",
     title: "API-Tester",

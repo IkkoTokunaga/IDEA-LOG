@@ -5,5 +5,6 @@ Expected filenames:
 - kids-shape-top.png
 - kids-kanji-top.png
 - kids-oekaki-hiroba-top.png
+- kids-flashcard-top.png
 - api-tester-top.png
 - osi-reference-top.png

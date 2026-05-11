@@ -51,7 +51,7 @@ export function Hero() {
         <dl className="mt-14 grid max-w-lg grid-cols-3 gap-3">
           {[
             { label: "作品数", value: String(projects.length).padStart(2, "0") },
-            { label: "開始年", value: "2020" },
+            { label: "開始年", value: "2026" },
             { label: "種別", value: "個人制作" },
           ].map((kpi) => (
             <div
