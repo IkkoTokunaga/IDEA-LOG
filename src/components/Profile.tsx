@@ -30,7 +30,7 @@ export function Profile() {
           className="h-9 w-9 shrink-0"
         />
         <p className="text-[13px] text-[color:var(--color-ink-muted)]">
-          下のバッジは、これまで取ってきた国家試験。土台がしっかりしていると、その上に乗せる物の温度を選べます。
+          下のバッジは、これまで取ってきた国家試験です。基礎があるからこそ、課題に合わせて実装の方向を落ち着いて選べます。
         </p>
       </div>
 
