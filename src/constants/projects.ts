@@ -183,7 +183,7 @@ export const projects: Project[] = [
       "算数の反復練習では、難易度の急激な変化やフィードバックの遅れが、子どもの集中と達成感を損ないやすい。",
     solution:
       "レベル別の問題生成と即時フィードバックを組み合わせ、正解・不正解がすぐわかる UI で継続的な練習を設計。モバイルでも操作しやすい画面構成にした。",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
     highlights: [
       "レベル別の足し算問題で、段階的に計算力を伸ばせる",
       "正誤判定とフィードバックを即時表示し、学習リズムを途切れさせない",
