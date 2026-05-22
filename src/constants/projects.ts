@@ -85,6 +85,50 @@ export const projects: Project[] = [
     accent: "rose",
   },
   {
+    id: "kids-hiragana",
+    thumbnail: "/images/projects/kids-hiragana-top.png",
+    title: "ひらがな れんしゅう",
+    tagline: "五十音表から選んで、書き順つきなぞり書き",
+    description:
+      "小学生低学年向けのひらがな練習 Web アプリ。清音46文字すべてで、書き順アニメーションとなぞり書きができる。",
+    problem:
+      "ひらがなの筆順を見ながら手でなぞる体験は、紙教材では繰り返ししづらく、モバイルでは描画とスクロールの干渉が起きやすい。",
+    solution:
+      "KanjiVG の書き順データを SVG で可視化し、Canvas なぞり書きと組み合わせ。五十音表から1文字選ぶ導線で、低年齢でも迷わず練習できる UI にした。",
+    stack: ["Next.js", "TypeScript", "Canvas API", "KanjiVG"],
+    highlights: [
+      "清音46文字を五十音表グリッドで一覧し、1タップで練習画面へ",
+      "書き順アニメーションとなぞり書きを同一画面で提供",
+      "KanjiVG (CC BY-SA 3.0) 由来の筆順データでライセンスを明確化",
+    ],
+    links: {
+      demo: "https://hiragana.ikk-dev.jp/",
+    },
+    accent: "amber",
+  },
+  {
+    id: "kids-katakana",
+    thumbnail: "/images/projects/kids-katakana-top.png",
+    title: "カタカナ れんしゅう",
+    tagline: "五十音表から選んで、書き順つきなぞり書き",
+    description:
+      "清音46文字すべてで、書き順アニメーションとなぞり書きができるカタカナ練習アプリ。ひらがな版と同じ操作感でカタカナの書き方を習得できる。",
+    problem:
+      "カタカナは形が似た文字が多く、筆順を示しながら反復練習する場が少ないと、書き分けの定着が遅れやすい。",
+    solution:
+      "ひらがな版と共通の Canvas なぞり書き基盤に、KanjiVG 由来のカタカナ筆順データを適用。五十音表から選んで即練習できる導線で、書き順と形を同時に覚えられる構成にした。",
+    stack: ["Next.js", "TypeScript", "Canvas API", "KanjiVG"],
+    highlights: [
+      "清音46文字を五十音表グリッドで一覧し、1タップで練習画面へ",
+      "書き順アニメーションとなぞり書きを同一画面で提供",
+      "KanjiVG (CC BY-SA 3.0) 由来の筆順データでライセンスを明確化",
+    ],
+    links: {
+      demo: "https://katakana.ikk-dev.jp/",
+    },
+    accent: "violet",
+  },
+  {
     id: "kids-oekaki-hiroba",
     thumbnail: "/images/projects/kids-oekaki-hiroba-top.png",
     title: "おえかき ひろば",
@@ -127,6 +171,28 @@ export const projects: Project[] = [
       demo: "https://kids-flashcard.ikk-dev.jp/",
     },
     accent: "emerald",
+  },
+  {
+    id: "kids-math",
+    thumbnail: "/images/projects/kids-math-top.png",
+    title: "たしざん れんしゅう",
+    tagline: "レベル別の足し算問題で、楽しく計算力を鍛える",
+    description:
+      "小学生向けの足し算練習アプリ。難易度に応じた問題出題で、短いセッションでも継続しやすい学習体験を提供する。",
+    problem:
+      "算数の反復練習では、難易度の急激な変化やフィードバックの遅れが、子どもの集中と達成感を損ないやすい。",
+    solution:
+      "レベル別の問題生成と即時フィードバックを組み合わせ、正解・不正解がすぐわかる UI で継続的な練習を設計。モバイルでも操作しやすい画面構成にした。",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    highlights: [
+      "レベル別の足し算問題で、段階的に計算力を伸ばせる",
+      "正誤判定とフィードバックを即時表示し、学習リズムを途切れさせない",
+      "モバイル向けの viewport 設計で、入力と表示の干渉を抑制",
+    ],
+    links: {
+      demo: "https://math.ikk-dev.jp/",
+    },
+    accent: "cyan",
   },
   {
     id: "api-tester",
